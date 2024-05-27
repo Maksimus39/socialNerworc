@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Footer = () => {
+export const Profile = () => {
     return (
         <div className={"content"}>
             <div>
