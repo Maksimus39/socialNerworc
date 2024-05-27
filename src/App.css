@@ -1,6 +1,6 @@
 .app-wrapper {
     display: grid;
-    width: 1500px;
+    width: 1200px;
     margin: 0 auto;
 
     grid-template-rows: 90px 1fr;
@@ -9,30 +9,6 @@
 
 
     grid-template-areas:
-"header header"
-"navbar content";
+            "header header"
+            "navbar content";
 }
-
-.header {
-    grid-area: header;
-    background-color: #3C548B;
-}
-
-.header img {
-    width: 200px;
-}
-
-.navbar {
-    grid-area: navbar;
-    background-color: #3C548B;
-}
-
-.content {
-    grid-area: content;
-    background-color: #E86221;
-}
-
-/*.content img {*/
-/*    height: 300px;*/
-/*    width: 1246.67px;*/
-/*}*/
