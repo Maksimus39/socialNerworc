@@ -1,0 +1,15 @@
+/*.content {*/
+/*    grid-area: content;*/
+/*    background-color: #E86221;*/
+/*}*/
+
+.item {
+    color: #0b52ea;
+}
+
+.item img{
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+
