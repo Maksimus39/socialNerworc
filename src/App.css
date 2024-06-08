@@ -12,3 +12,15 @@
             "header header"
             "navbar content";
 }
+
+
+.app-wrapper-content {
+
+    grid-area: content;
+    background-color: #E86221;
+
+
+    /*.item {*/
+    /*    color: #0b52ea;*/
+    /*}*/
+}
