@@ -1,12 +1,32 @@
 .navbar {
     grid-area: navbar;
-    background-color: #223fbd;
+    background: linear-gradient(135deg, #223fbd 0%, #2b4def 100%);
+    padding: 15px; /* Уменьшаем боковой отступ */
+    display: flex;
+    flex-direction: column; /* Меняем направление элементов с горизонтального на вертикальное */
+    align-items: start; /* Выравниваем элементы по левому краю */
+    justify-content: start;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .item a {
     color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 5px 0; /* Добавляем небольшой отступ между элементами */
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.item a:hover,
+.item a:focus {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .item .active {
     color: gold;
+    background-color: rgba(255, 215, 0, 0.2);
+    border-radius: 5px;
 }
+
