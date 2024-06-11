@@ -1,6 +1,6 @@
 .navbar {
     grid-area: navbar;
-    background: linear-gradient(135deg, #223fbd 0%, #2b4def 100%);
+    background: linear-gradient(135deg, #1f2e62 0%, #2b4def 100%);
     padding: 15px; /* Уменьшаем боковой отступ */
     display: flex;
     flex-direction: column; /* Меняем направление элементов с горизонтального на вертикальное */
@@ -17,6 +17,8 @@
     margin: 5px 0; /* Добавляем небольшой отступ между элементами */
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
+    font-size: 25px;
+    font-weight: lighter;
 }
 
 .item a:hover,
@@ -24,9 +26,8 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.item .active {
+.item a.activeLink {
     color: gold;
     background-color: rgba(255, 215, 0, 0.2);
     border-radius: 5px;
 }
-
