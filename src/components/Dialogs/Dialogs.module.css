@@ -18,6 +18,10 @@
     margin: 0 auto;
 }
 
+.dialog a {
+    text-decoration: none;
+}
+
 .dialog-items,
 .messages {
     display: grid;
