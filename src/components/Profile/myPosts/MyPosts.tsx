@@ -4,6 +4,18 @@ import {Post} from "./Post/Post";
 
 
 export const MyPosts = () => {
+
+    const posts = [
+        {id: 1, message: 'Hi how are you?', LikeCounts: '15'},
+        {id: 2, message: 'It`s my first post', LikeCounts: '20'}
+    ]
+
+    const postsElements = posts.map(post => {
+        return (
+            <Post key={post.id} message={post.message} LikeCounts={post.LikeCounts}/>
+        )
+    })
+
     return (
 
         <div>
@@ -13,8 +25,8 @@ export const MyPosts = () => {
                 <button className={classes.addPostBtn}>Add post</button>
             </div>
             <div className={classes.posts}>
-                <Post message={'Hi how are you?'} LikeCounts={'15'}/>
-                <Post message={'It`s my first post'} LikeCounts={'20'}/>
+
+                {postsElements}
             </div>
         </div>
     );
