@@ -1,0 +1,22 @@
+:root {
+    --border-color: #007bff; /* Цвет границы */
+    --hover-scale: 1.05; /* Увеличение масштаба при наведении */
+}
+
+.profileImgWrapper {
+    overflow: hidden; /* Обрезает все за пределами контейнера, важно для закругления */
+    border-radius: 4%; /* Делаем обёртку изображения круглой */
+    border: 4px solid var(--border-color); /* Применяем стиль границы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для объема */
+    transition: transform 0.3s ease; /* Плавный переход для 'transform' */
+}
+
+.profileImg {
+    width: 850px; /* Жестко указываем размер, который придает форму изображению */
+    height: 700px; /* Жестко указываем размер, сохраняет соотношение сторон */
+    object-fit: cover; /* Обеспечивает покрытие области контейнера без искажения */
+}
+
+.profileImgWrapper:hover {
+    transform: scale(var(--hover-scale)); /* Увеличиваем масштаб при наведении */
+}

@@ -4,7 +4,7 @@ import classes from './Post.module.css'
 
 type PostProps = {
     message: string
-    LikeCounts:string
+    LikeCounts: string
 }
 export const Post = (props: PostProps) => {
     return (

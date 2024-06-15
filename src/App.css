@@ -28,69 +28,6 @@
 }
 
 
-:root {
-    --border-color: #007bff; /* Цвет границы */
-    --hover-scale: 1.05; /* Увеличение масштаба при наведении */
-}
-
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрирует содержимое по горизонтали */
-}
-
-.profile-img-wrapper {
-    overflow: hidden; /* Обрезает все за пределами контейнера, важно для закругления */
-    border-radius: 4%; /* Делаем обёртку изображения круглой */
-    border: 4px solid var(--border-color); /* Применяем стиль границы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень для объема */
-    transition: transform 0.3s ease; /* Плавный переход для 'transform' */
-}
-
-.profile-img {
-    width: 850px; /* Жестко указываем размер, который придает форму изображению */
-    height: 700px; /* Жестко указываем размер, сохраняет соотношение сторон */
-    object-fit: cover; /* Обеспечивает покрытие области контейнера без искажения */
-}
-
-.profile-img-wrapper:hover {
-    transform: scale(var(--hover-scale)); /* Увеличиваем масштаб при наведении */
-}
-
-/* Ставим переходы и оформления для других элементов, если требуется */
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Добавляет небольшое расстояние между элементами */
-    margin-bottom: 20px; /* Добавляет отступ снизу к следующему блоку */
-}
-
-.post-input {
-    width: 50%; /* Ширина поля ввода */
-    padding: 10px; /* Внутренние отступы */
-    border-radius: 5px; /* Скругленные углы */
-    border: 1px solid #ccc; /* Тонкая серая граница */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт текста */
-    display: block; /* Занимает всю доступную ширину контейнера */
-    margin: 0 auto 20px; /* Центрируется по горизонтали и имеет нижний отступ */
-}
-
-
-.add-post-btn {
-    padding: 10px 20px; /* Отступы внутри кнопки */
-    border-radius: 5px; /* Скругление углов кнопки */
-    border: none; /* Убирает стандартную рамку */
-    background-color: #007bff; /* Синий фон кнопки */
-    color: white; /* Белый цвет текста */
-    cursor: pointer; /* Показывает указатель, подсказывая о кликабельности */
-    transition: background-color 0.3s; /* Плавное изменение фона при наведении */
-}
-
-.add-post-btn:hover {
-    background-color: #0056b3; /* Темно-синий фон при наведении */
-}
-
 
 
 

@@ -1,11 +1,11 @@
 .header {
     grid-area: header;
-    background-color:  #374785;
+    background-color: #374785;
     padding: 10px 20px; /* Добавляем небольшой отступ для воздуха вокруг содержимого */
     display: flex; /* Используем flexbox для лучшего выравнивания элементов */
     align-items: center; /* Центрируем элементы по вертикали */
     justify-content: space-between; /* Распределение пространства между элементами и краями */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Добавляем тень для объемности */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Добавляем тень для объемности */
     border-radius: 15px;
 }
 

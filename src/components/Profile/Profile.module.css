@@ -2,3 +2,8 @@
     color: #0b52ea;
 }
 
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует содержимое по горизонтали */
+}
