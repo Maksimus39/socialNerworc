@@ -1,30 +1,8 @@
 import classes from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
+import {DialogsItem, DialogsPropsItem} from "./DialogItem/DialogItem";
+import React from "react";
+import {Message, PropsMessage} from "./Message/Message";
 
-
-type DialogsPropsItem = {
-    name: string
-    id: number
-}
-
-export const DialogsItem = (props: DialogsPropsItem) => {
-
-    const patch = "/dialogs/" + props.id;
-    return <div className={classes.dialog}>
-
-        <NavLink to={patch}>{props.name}</NavLink>
-    </div>
-}
-
-
-type PropsMessage = {
-    message: string
-    id: number
-}
-
-export const Message = (props: PropsMessage) => {
-    return <div className={classes.message}>{props.message}</div>
-}
 
 export const Dialogs = () => {
     // Блок для отрисовки users
@@ -35,12 +13,6 @@ export const Dialogs = () => {
         {name: "Bogdan", id: 4}
     ]
 
-    const dialogsElement = dialogsData.map(dialog => {
-        return (
-            <DialogsItem key={dialog.id} name={dialog.name} id={dialog.id}/>
-        )
-    })
-
     // Блок для отрисовки Message
     let messagesData: PropsMessage[] = [
         {message: "Привет, семья! Как ваши дела сегодня?", id: 1},
@@ -48,6 +20,14 @@ export const Dialogs = () => {
         {message: "Привет, всем! Я только что вернулся с тренировки, было классно.", id: 3},
         {message: "Привет, пап! Я заканчиваю домашнее задание, скоро буду свободен.", id: 4},
     ]
+
+
+    const dialogsElement = dialogsData.map(dialog => {
+        return (
+            <DialogsItem key={dialog.id} name={dialog.name} id={dialog.id}/>
+        )
+    })
+
     const messageElement = messagesData.map(message => {
         return (
             <Message key={message.id} message={message.message} id={message.id}/>
