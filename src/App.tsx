@@ -8,11 +8,12 @@ import {Route, Routes} from "react-router-dom";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {RootStateType} from "./redux/state";
+import {addPost, RootStateType} from "./redux/state";
 
 
 export type AppProps = {
     state: RootStateType
+    addPost:(postMessage: string)=>void
 }
 
 function App({state}: AppProps) {
@@ -28,7 +29,7 @@ function App({state}: AppProps) {
 
                 <Routes>
 
-                    <Route path='/profile' element={<Profile posts={state.profilePage.posts}/>}/>
+                    <Route path='/profile' element={<Profile posts={state.profilePage.posts} addPost={addPost}/>}/>
                     <Route path='/dialogs'
                            element={<Dialogs dialogs={state.profilePage.dialogs}
                                              messages={state.dialogsPage.messages}/>}/>
