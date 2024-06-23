@@ -1,3 +1,5 @@
+import {rerenderEntereTree} from "../render";
+
 export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: MessagesPageType
@@ -15,7 +17,7 @@ export type MessagesPageType = {
 export type PostsType = {
     id: number
     message: string
-    LikeCounts: string
+    LikeCounts: number
 }
 export type DialogsPropsItem = {
     name: string
@@ -31,8 +33,8 @@ export type PropsMessage = {
 let state: RootStateType = {
     profilePage: {
         posts: [
-            {id: 1, message: 'Hi how are you?', LikeCounts: '15'},
-            {id: 2, message: 'It`s my first post', LikeCounts: '20'}
+            {id: 1, message: 'Hi how are you?', LikeCounts: 15},
+            {id: 2, message: 'It`s my first post', LikeCounts: 20}
         ],
         dialogs: [
             {
@@ -65,7 +67,17 @@ let state: RootStateType = {
             {message: "Привет, пап! Я заканчиваю домашнее задание, скоро буду свободен.", id: 4},
         ]
     }
-
 }
+
+export let addPost = (postMessage: string) => {
+    let newPost = {
+        id: 3,
+        message: postMessage,
+        LikeCounts: 0
+    }
+    state.profilePage.posts.push(newPost)
+    rerenderEntereTree(state)
+}
+
 
 export default state
