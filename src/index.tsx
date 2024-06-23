@@ -4,17 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from "./redux/state";
+import {BrowserRouter} from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
-    <React.StrictMode>
-        <App
-            state={state}
-        />
-    </React.StrictMode>
+    <BrowserRouter>
+        <React.StrictMode>
+            <App
+                state={state}
+            />
+        </React.StrictMode>
+    </BrowserRouter>
 );
 
 reportWebVitals();
