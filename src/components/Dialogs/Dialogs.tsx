@@ -1,5 +1,5 @@
 import classes from './Dialogs.module.css'
-import React from "react";
+import React, {useRef} from "react";
 import {DialogsPropsItem, PropsMessage} from "../../redux/state";
 import {DialogsItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
@@ -14,7 +14,12 @@ export const Dialogs = ({dialogs, messages}: DialogsProps) => {
 
     const dialogsElement = dialogs?.map(dialog => {
         return (
-            <DialogsItem key={dialog.id} name={dialog.name} id={dialog.id}/>
+            <DialogsItem
+                key={dialog.id}
+                name={dialog.name}
+                id={dialog.id}
+                img={dialog.img}
+            />
         )
     })
 
@@ -23,6 +28,12 @@ export const Dialogs = ({dialogs, messages}: DialogsProps) => {
             <Message key={message.id} message={message.message} id={message.id}/>
         )
     })
+
+    const newPostElement = useRef<HTMLTextAreaElement>(null);
+
+    const addDialogs = () => {
+        let text: string | undefined = newPostElement.current?.value;
+    }
 
     return (
         <div className={classes.dialogs}>
@@ -34,6 +45,12 @@ export const Dialogs = ({dialogs, messages}: DialogsProps) => {
             <div className={classes.messages}>
 
                 {messageElement}
+            </div>
+
+
+            <div className={classes.inputGroup}>
+                <textarea className={classes.postInput} placeholder='ADD TEXT' ref={newPostElement}></textarea>
+                <button className={classes.addPostBtn} onClick={addDialogs}>Add post</button>
             </div>
         </div>
     )
