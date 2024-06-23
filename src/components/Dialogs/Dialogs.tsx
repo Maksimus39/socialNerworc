@@ -29,6 +29,11 @@ export const Dialogs = ({dialogs, messages}: DialogsProps) => {
         )
     })
 
+
+
+
+
+
     const newPostElement = useRef<HTMLTextAreaElement>(null);
 
     const addDialogs = () => {
