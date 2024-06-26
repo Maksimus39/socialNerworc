@@ -1,38 +1,50 @@
-import React, {useRef} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import classes from './MyPosts.module.css'
 import {Post} from "./Post/Post";
-import {PostsType} from "../../../redux/state";
+import {ProfilePageType} from "../../../redux/state";
 
 type MyPostsPropsType = {
-    posts: PostsType[],
-    addPost: (postMessage: string) => void
+    profilePage: ProfilePageType
+    addPost: (postText: string) => void
+    updateNewPostText: (newText: string) => void
 }
 export const MyPosts = (props: MyPostsPropsType) => {
 
-    const postsElements = props.posts.map(post => {
+    const [text, setPostText] = useState(''); // Инициализируем состояние с пустой строкой
+
+    const postsElements = props.profilePage.posts.map(post => {
         return (
             <Post key={post.id} message={post.message} LikeCounts={post.LikeCounts}/>
         )
     })
 
 
-    const newPostElement = useRef<HTMLTextAreaElement | null>(null);
-
-    const addPost = () => {
-        let text: string | undefined = newPostElement.current?.value;
-        if (text && newPostElement.current !== null) {
+    let addPost = () => {
+        if(text.trim()){
+            console.log(text)
             props.addPost(text)
-            newPostElement.current.value = ''
+            setPostText('')
         }
     }
 
+    let onPostChange = (event:ChangeEvent<HTMLTextAreaElement> ) => {
+        setPostText(event.currentTarget.value)
+    }
 
     return (
 
         <div>
             <h3>My Posts</h3>
             <div className={classes.inputGroup}>
-                <textarea className={classes.postInput} placeholder='ADD TEXT' ref={newPostElement}></textarea>
+
+                <textarea
+
+                    className={classes.postInput}
+                    value={text}
+                    onChange={onPostChange}
+                />
+
+
                 <button className={classes.addPostBtn} onClick={addPost}>Add post</button>
             </div>
             <div className={classes.posts}>
@@ -42,5 +54,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
         </div>
     );
 };
+
+
 
 
