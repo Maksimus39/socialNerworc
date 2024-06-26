@@ -8,10 +8,11 @@ export type RootStateType = {
 
 export type ProfilePageType = {
     posts: PostsType[]
-    dialogs?: DialogsPropsItem[]
+    newPostText: string
 }
 export type MessagesPageType = {
     messages: PropsMessage[]
+    dialogs?: DialogsPropsItem[]
 }
 
 export type PostsType = {
@@ -36,6 +37,15 @@ let state: RootStateType = {
             {id: 1, message: 'Hi how are you?', LikeCounts: 15},
             {id: 2, message: 'It`s my first post', LikeCounts: 20}
         ],
+        newPostText: ''
+    },
+    dialogsPage: {
+        messages: [
+            {message: "Привет, семья! Как ваши дела сегодня?", id: 1},
+            {message: "Здравствуй, дорогой! Всё хорошо, занимаемся подготовкой к ужину.", id: 2},
+            {message: "Привет, всем! Я только что вернулся с тренировки, было классно.", id: 3},
+            {message: "Привет, пап! Я заканчиваю домашнее задание, скоро буду свободен.", id: 4},
+        ],
         dialogs: [
             {
                 name: "Max",
@@ -58,25 +68,29 @@ let state: RootStateType = {
                 img: "https://sun9-45.userapi.com/impf/e_ONGiQCQJztuBTNWZ5oiakqhTd8ynLdAEXSCQ/sOPQfnNHtWk.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,2560x1707&sign=5d8771ce78baab6cd096e397da72e745&from=bu&u=mBjp8GTLI65p2YmDLC8NPga9aHDYl3-Qj0FvrD4X260&cs=510x340"
             }
         ],
-    },
-    dialogsPage: {
-        messages: [
-            {message: "Привет, семья! Как ваши дела сегодня?", id: 1},
-            {message: "Здравствуй, дорогой! Всё хорошо, занимаемся подготовкой к ужину.", id: 2},
-            {message: "Привет, всем! Я только что вернулся с тренировки, было классно.", id: 3},
-            {message: "Привет, пап! Я заканчиваю домашнее задание, скоро буду свободен.", id: 4},
-        ]
     }
 }
 
-export let addPost = (postMessage: string) => {
+// @ts-ignore
+window.state = state
+
+export const addPost = (postText: string) => {
     let newPost = {
         id: 3,
-        message: postMessage,
+        message: postText,
         LikeCounts: 0
     }
     state.profilePage.posts.push(newPost)
     rerenderEntereTree(state)
+    state.profilePage.newPostText = ''
+}
+
+export const updateNewPostText = (newText: string) => {
+
+    state.profilePage.newPostText = newText
+    console.log(newText)
+    rerenderEntereTree(state)
+    // state.profilePage.newPostText = ' '
 }
 
 
