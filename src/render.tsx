@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addPost, RootStateType} from "./redux/state";
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { addPost, RootStateType, updateNewPostText } from "./redux/state";
 
-export let rerenderEntereTree = (state: RootStateType) => {
-    const root = ReactDOM.createRoot(
-        document.getElementById('root') as HTMLElement
-    );
+// Создаем корень один раз, в глобальной области видимости модуля
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
+export const rerenderEntereTree = (state: RootStateType) => {
     root.render(
-        <BrowserRouter>
-            <React.StrictMode>
+        <React.StrictMode>
+            <BrowserRouter>
                 <App
                     state={state}
                     addPost={addPost}
+                    updateNewPostText={updateNewPostText}
                 />
-            </React.StrictMode>
-        </BrowserRouter>
+            </BrowserRouter>
+        </React.StrictMode>
     );
 }
 
+// Теперь функция rerenderEntereTree использует уже созданный корень, когда ее вызывают
 
 reportWebVitals();
+
