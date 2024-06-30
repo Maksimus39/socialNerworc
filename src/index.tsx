@@ -1,22 +1,23 @@
 import './index.css';
-import state, {addPost, RootStateType, subscribe, updateNewPostText} from "./redux/state";
+import store, {RootStateType} from "./redux/state";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 
+
 // Создаем корень один раз, в глобальной области видимости модуля
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const rerenderEntereTree = (state:RootStateType) => {
+const rerenderEntireTree = (state: RootStateType) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
                 <App
                     state={state}
-                    addPost={addPost}
-                    updateNewPostText={updateNewPostText}
+                    addPost={store.addPost.bind(store)}
+                    updateNewPostText={store.updateNewPostText.bind(store)}
                 />
             </BrowserRouter>
         </React.StrictMode>
@@ -28,6 +29,8 @@ const rerenderEntereTree = (state:RootStateType) => {
 reportWebVitals();
 
 
-rerenderEntereTree(state)
+rerenderEntireTree(store.getState())
 
-subscribe(()=>rerenderEntereTree(state))
+store.subscribe(() => rerenderEntireTree(store._state))
+
+
